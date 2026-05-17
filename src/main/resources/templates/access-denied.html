@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{_layout :: layout('Access denied', ~{::section})}">
+<section>
+    <div class="alert alert-warning">
+        <h1 class="h4 mb-1">Access denied</h1>
+        <div class="text-muted">You don’t have permission to view this page.</div>
+    </div>
+    <a class="btn btn-outline-secondary" th:href="@{/}">Go back</a>
+</section>
+</html>
+

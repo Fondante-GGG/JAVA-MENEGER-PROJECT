@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    url: jdbc:sqlite:${KUR_DB_PATH:./data/kur.db}
+    driver-class-name: org.sqlite.JDBC
+    hikari:
+      connection-init-sql: PRAGMA foreign_keys=ON
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.community.dialect.SQLiteDialect
+        type:
+          preferred_uuid_jdbc_type: CHAR
+
+logging:
+  level:
+    org.hibernate.SQL: debug

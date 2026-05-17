@@ -1,0 +1,23 @@
+target/
+build/
+.mvn/timing.properties
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+
+# Local runtime data
+data/
+*.db
+
+# Logs
+*.log
+
+# Java
+*.class
+hs_err_pid*
+replay_pid*
