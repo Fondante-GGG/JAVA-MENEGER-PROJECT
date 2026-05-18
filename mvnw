@@ -37,5 +37,4 @@ if [ ! -x "$JAVA_EXEC" ]; then
   JAVA_EXEC=java
 fi
 
-exec "$JAVA_EXEC" -jar "$JAR" -Dmaven.multiModuleProjectDirectory="$BASE_DIR" "$@"
-
+exec "$JAVA_EXEC" -cp "$JAR" -Dmaven.multiModuleProjectDirectory="$BASE_DIR" org.apache.maven.wrapper.MavenWrapperMain "$@"

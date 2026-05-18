@@ -51,6 +51,18 @@ public class UserManagementService {
         });
     }
 
+    public void ensureAdminExists(String email, String rawPassword) {
+        unitOfWork.run(() -> {
+            Email emailVo = new Email(email);
+            if (userAccountRepository.findByEmail(emailVo).isPresent()) {
+                return;
+            }
+            String passwordHash = passwordHasher.hash(rawPassword);
+            UserAccount admin = new UserAccount(UUID.randomUUID(), emailVo, passwordHash, UserRole.ADMIN, true);
+            userAccountRepository.save(admin);
+        });
+    }
+
     public Optional<String> grantStudentAccess(UUID studentId) {
         return unitOfWork.call(() -> {
             var student = studentRepository.findById(new StudentId(studentId))
@@ -100,4 +112,3 @@ public class UserManagementService {
         return password.toString();
     }
 }
-

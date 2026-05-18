@@ -23,3 +23,9 @@ spring:
 logging:
   level:
     org.hibernate.SQL: debug
+
+app:
+  default-admin:
+    email: admin@example.com
+    password: Admin12345
+  seed-test-data: true
